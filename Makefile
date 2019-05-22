@@ -23,5 +23,5 @@ sam_deploy:
 sam_output:
 	AWS_PROFILE=${AWS_PROFILE} aws cloudformation describe-stacks \
         --stack-name emotions-api \
-        --query 'Stacks[].Outputs[?OutputKey==`HelloWorldApi`]' \
+        --query 'Stacks[].Outputs[?OutputKey==`Api`]' \
         --output table
