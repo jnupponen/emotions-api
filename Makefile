@@ -1,6 +1,7 @@
 
-BUCKET_NAME=jnupponen-emotions-api-artifacts
-AWS_PROFILE=jnupponen-demo-dev
+# Override these with your own.
+# BUCKET_NAME=jnupponen-emotions-api-artifacts
+# AWS_PROFILE=jnupponen-demo-dev
 
 
 

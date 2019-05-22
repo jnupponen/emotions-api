@@ -1,5 +1,50 @@
 # emotions-api
+> emotions-api live coding at the [First Tampere Serverless Meetup](https://www.meetup.com/Tampere-Serverless/events/260755950/)
 
+## Requirements
+
+- AWS profile in `~/.aws/credentials`
+- Override `BUCKET_NAME` and `AWS_PROFILE` in [Makefile](Makefile).
+- AWS CLI and AWS SAM CLI installed, see [https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install.html](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install.html)
+- GNU Make 4.1 installed
+
+## Deploying
+
+```bash
+make init # this you need to do only once
+make deploy # each time you change code or template
+```
+
+## Testing
+Replace `<api_id>` with your own API Gateway id from stack outputs.
+
+```bash
+curl --data-binary @angry.jpeg -H "Content-Type: image/jpeg" https://<api_id>.execute-api.eu-west-1.amazonaws.com/Prod/emotions
+```
+API Response:
+
+```json
+{
+    "message": [
+        {
+            "Confidence": 71.06904602050781,
+            "Type": "ANGRY"
+        }
+    ]
+}
+```
+
+## Additional SAM commands
+
+The Makefile was based on [SAM and AWS CLI commands](#sam-commands) which may be checked out for additional commands.
+
+## Creating new project
+
+```bash
+sam init --help
+```
+
+## AWS SAM generated howto
 This is a sample template for emotions-api - Below is a brief explanation of what we have generated for you:
 
 ```bash
@@ -168,7 +213,7 @@ sam build --use-container
 
 By default, this command writes built artifacts to `.aws-sam/build` folder.
 
-## SAM and AWS CLI commands
+## <a name="sam-commands"></a>SAM and AWS CLI commands
 
 All commands used throughout this document
 
